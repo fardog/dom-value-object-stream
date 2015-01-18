@@ -41,8 +41,10 @@ Returns a duplex stream that accepts DOM events, and emits a value object. The
 value object is only emitted when its values have changed.
 
 Internally, this looks at `event.target.name` and `event.target.value`, so be
-sure that any HTML element you're using has a `name` attribute. Unnamed
-elements are ignored.
+sure that any HTML element you're using has a `name` attribute. 
+
+The stream will emit `'error'` events if `event.target` or `event.target.name`
+are not available.
 
 ## License
 
