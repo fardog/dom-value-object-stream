@@ -20,10 +20,10 @@ Some HTML with three inputs:
 &hellip;and the following Javascript:
 
 ```javascript
-var events = require('dom-delegation-stream')
+var events = require('dom-event-stream')
   , values = require('dom-value-object-stream')
 
-events(document.querySelector('[rel=inputs]'), 'input', 'input[type=text]')
+events(document.querySelector('[rel=inputs]'), 'input')
   .pipe(values()).on('data', function(data) {
     // some input occurs, entering "One" "Two" and "Three" into their
     // respective inputs
