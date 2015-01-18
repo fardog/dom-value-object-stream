@@ -1,0 +1,32 @@
+{
+  "name": "dom-value-object-stream",
+  "version": "0.0.0",
+  "description": "Convert a stream of DOM events into an object of its values.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fardog/dom-value-object-stream.git"
+  },
+  "keywords": [
+    "dom",
+    "value",
+    "stream"
+  ],
+  "author": "Nathan Wittstock <nate@milkandtang.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fardog/dom-value-object-stream/issues"
+  },
+  "homepage": "https://github.com/fardog/dom-value-object-stream",
+  "dependencies": {
+    "duplexer": "^0.1.1",
+    "objectstate": "^2.0.0",
+    "through": "^2.3.6"
+  },
+  "devDependencies": {
+    "tape": "^3.2.0"
+  }
+}
