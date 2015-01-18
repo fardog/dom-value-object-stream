@@ -2,7 +2,7 @@ var events = require('dom-event-stream')
   , debounce = require('debounce')
   , test = require('tape')
 
-var values = require('./')
+var values = require('./index')
 
 test('streams values for a single node', function(t) {
   t.plan(1)
@@ -23,8 +23,6 @@ test('streams values for a single node', function(t) {
 
   function done(data) {
     t.deepEqual({test: 'something'}, data)
-
-    t.end()
   }
 })
 
@@ -56,8 +54,62 @@ test('streams values for multiple nodes', function(t) {
         one: 'One'
       , two: 'Two'
     }, data)
+  }
+})
 
-    t.end()
+test('unnamed events cause errors to be emitted', function(t) {
+  t.plan(1)
+
+  var el = sandbox()
+    , stream = events(el, 'click').pipe(values())
+    , target = document.createElement('input')
+
+  target.type = 'button'
+  target.value = 'something'
+
+  el.appendChild(target)
+
+  stream.on('data', onData)
+  stream.on('error', onError)
+
+  target.click()
+
+  function onData(data) {
+    t.fail('should not emit data')
+  }
+
+  function onError(err) {
+    t.pass('should emit error')
+  }
+})
+
+test('unnamed events can be ignored', function(t) {
+  t.plan(1)
+
+  var el = sandbox()
+    , stream = events(el, 'click').pipe(values(null, true))
+    , target = document.createElement('input')
+
+  target.type = 'button'
+  target.value = 'something'
+
+  el.appendChild(target)
+
+  stream.on('data', onData)
+  stream.on('error', onError)
+
+  target.click()
+
+  setTimeout(function() {
+    t.pass('should emit no events')
+  }, 100)
+
+  function onData(data) {
+    t.fail('should not emit data')
+  }
+
+  function onError(err) {
+    t.fail('should not emit an error')
   }
 })
 

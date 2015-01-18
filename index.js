@@ -4,7 +4,7 @@ var through = require('through')
 
 module.exports = valueObjectStream
 
-function valueObjectStream(_defaultValue) {
+function valueObjectStream(_defaultValue, ignoreUnnamed) {
   var input = through(write)
     , os = objectstate()
     , defaultValue = _defaultValue || ''
@@ -27,10 +27,12 @@ function valueObjectStream(_defaultValue) {
 
     if (!event.target) {
       error = new Error('`event.target` was not available.')
-    } else if (!event.target.name) {
+    } else if (!event.target.name && !ignoreUnnamed) {
       error = new Error('`event.target` was available, but the element was not named')
     }
 
-    os.emit('error', error)
+    if(error) {
+      os.emit('error', error)
+    }
   }
 }
