@@ -1,6 +1,6 @@
 {
   "name": "dom-value-object-stream",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert a stream of DOM events into an object of its values.",
   "main": "index.js",
   "scripts": {
