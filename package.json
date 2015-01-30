@@ -4,7 +4,7 @@
   "description": "Convert a stream of DOM events into an object of its values.",
   "main": "index.js",
   "scripts": {
-    "test": "browserify test.js | jsdom-eval | faucet"
+    "test": "browserify test.js | jsdom-eval"
   },
   "repository": {
     "type": "git",
@@ -29,8 +29,7 @@
   "devDependencies": {
     "browserify": "^8.1.1",
     "debounce": "^1.0.0",
-    "dom-event-stream": "0.0.1",
-    "faucet": "0.0.1",
+    "dom-delegation-stream": "^0.1.0",
     "jsdom-eval": "^0.2.2",
     "tape": "^3.2.0"
   }

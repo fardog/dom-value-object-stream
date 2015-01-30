@@ -23,7 +23,7 @@ Some HTML with three inputs:
 &hellip;and the following Javascript:
 
 ```javascript
-var events = require('dom-event-stream')
+var events = require('dom-delegation-stream')
   , values = require('dom-value-object-stream')
 
 events(document.querySelector('[rel=inputs]'), 'input')
@@ -57,7 +57,7 @@ value object is only emitted when its values have changed.
 ## Notes
 
 - `data` events will be fired each time a value changes, so for inputs where a
-  user is typing into a form, you will get progressive events, one for each key
+  user is typing into a form, you will get progressive events, one for each key.
 
 ## License
 
