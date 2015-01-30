@@ -1,4 +1,4 @@
-var events = require('dom-event-stream')
+var events = require('dom-delegation-stream')
   , debounce = require('debounce')
   , test = require('tape')
 
