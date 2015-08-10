@@ -2,6 +2,9 @@
 
 Convert a stream of DOM events into an object of its values.
 
+**Deprecated:** This module has some problems and I don't even use it; if
+someone wants to maintain it, please contact me via [github issues][issues].
+
 [![Build Status](http://img.shields.io/travis/fardog/dom-value-object-stream/master.svg?style=flat)](https://travis-ci.org/fardog/dom-value-object-stream)
 [![npm install](http://img.shields.io/npm/dm/dom-value-object-stream.svg?style=flat)](https://www.npmjs.org/package/dom-value-object-stream)
 
@@ -62,3 +65,5 @@ value object is only emitted when its values have changed.
 ## License
 
 MIT. See [LICENSE](./LICENSE) for details.
+
+[issues]: https://github.com/fardog/dom-value-object-stream/issues
